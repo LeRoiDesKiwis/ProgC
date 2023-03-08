@@ -1,0 +1,194 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "listeDouble.h"
+
+
+//initListe ne fait pas de malloc, juste une initialisation à NULL du pointeur de liste
+void initListe(T_liste *l){
+*l=NULL;
+}
+
+
+bool listeVide( T_liste l){
+    return (l==NULL);
+};
+
+void afficheListeV1(T_liste l){
+    T_liste courant = l;
+    while (courant!=NULL){
+        printf(" %d ",*(courant->pdata));
+        courant=courant->suiv;
+    }
+};
+
+T_liste ajoutEnTete(T_liste l, int mydata){
+    //création de la cellule à ajouter
+    T_liste nouv = (T_liste)malloc(sizeof(struct T_cell));
+    //struct T_cell * nouv = (struct T_cell *)malloc(sizeof(struct T_cell))
+    //equivalent
+    nouv->pdata = (int*)malloc(sizeof(int));
+    *(nouv->pdata)=mydata; //on modifie le contenu à l’adresse de notre pointeur
+    // fin création de la nouvelle cellule
+    if (l==NULL) // on crée en fait la première cellule de la liste
+    {
+        nouv->suiv = NULL;
+        nouv->prec = NULL;
+    }
+    else // la liste n'était pas vide, on doit donc faire les branchements
+    {
+        nouv->suiv = l; //Flêche orange sur le schéma
+        nouv->prec = NULL;
+        l->prec = nouv; //Flêche verte
+    }
+    return nouv;
+}
+
+T_liste ajoutEnFin(T_liste l, int mydata){
+    //création de la cellule à ajouter
+    T_liste nouv = (T_liste)malloc(sizeof(struct T_cell));
+    //struct T_cell * nouv = (struct T_cell *)malloc(sizeof(struct T_cell))
+    //equivalent
+    nouv->pdata = (int*)malloc(sizeof(int));
+    *(nouv->pdata)=mydata; //on modifie le contenu à l’adresse de notre pointeur
+    // fin création de la nouvelle cellule
+    if (l==NULL) // on crée en fait la première cellule de la liste
+    {
+        nouv->suiv = NULL;
+        nouv->prec = NULL;
+    }
+    else // la liste n'était pas vide, on doit donc faire les branchements
+    {
+        T_liste courant = l;
+        while (courant->suiv!=NULL){
+            courant=courant->suiv;
+        }
+        courant->suiv=nouv;
+        nouv->suiv = NULL;
+        nouv->prec = courant;
+    }
+    return nouv;
+}
+
+T_liste ajoutEnN(T_liste l, int pos, int mydata){
+        //création de la cellule à ajouter
+    T_liste nouv = (T_liste)malloc(sizeof(struct T_cell));
+    //struct T_cell * nouv = (struct T_cell *)malloc(sizeof(struct T_cell))
+    //equivalent
+    nouv->pdata = (int*)malloc(sizeof(int));
+    *(nouv->pdata)=mydata; //on modifie le contenu à l’adresse de notre pointeur
+    // fin création de la nouvelle cellule
+    if (l==NULL) // on crée en fait la première cellule de la liste
+    {
+        nouv->suiv = NULL;
+        nouv->prec = NULL;
+    }
+    else // la liste n'était pas vide, on doit donc faire les branchements
+    {
+        T_liste courant = l;
+        int i = 0;
+        while (courant->suiv!=NULL && i < pos){
+            courant=courant->suiv;
+        }
+        nouv->suiv = courant->suiv;
+        courant->suiv = nouv;
+        nouv->prec = courant;
+    }
+    return nouv;
+}
+
+T_liste suppEnTete(T_liste l){
+    l->suiv->prec = NULL;
+    return l->suiv;
+}
+T_liste suppEnFin(T_liste l){
+    T_liste courant = l;
+    while (courant->suiv!=NULL){
+        courant=courant->suiv;
+    }
+    courant->prec->suiv = NULL;
+    return courant->prec;
+}
+T_liste suppEnN(T_liste l, int pos){
+    T_liste courant = l;
+    int i = 0;
+    while (courant->suiv!=NULL && i < pos){
+        courant=courant->suiv;
+    }
+    courant->prec->suiv = courant->suiv;
+    courant->suiv->prec = courant->prec;
+    return l;
+}
+
+T_liste getptrFirstCell(T_liste l){
+    return l;
+}
+
+T_liste getptrLastCell(T_liste l){
+    T_liste courant = l;
+    while (courant->suiv!=NULL){
+        courant=courant->suiv;
+    }
+    return courant;
+}
+
+T_liste getptrNextCell(T_liste l){
+    return l->suiv;
+}
+
+T_liste getptrPrevCell(T_liste l){
+    return l->prec;
+}
+
+int* getPtrData(T_liste l, int mydata){
+    T_liste courant = l;
+    while(courant != NULL && mydata != *(courant->pdata)){
+        courant = courant->suiv;
+    }
+    return courant->pdata;
+}
+
+void swapPtrData( T_liste source, T_liste destination ){
+    int* a = source->pdata;
+    int* b = destination->pdata;
+    source->pdata = a;
+    source->pdata = b;
+}
+
+int getNbreCell(T_liste l){
+    T_liste courant = l;
+    int i = 0;
+    while(courant != NULL){
+        i++;
+        courant = courant->suiv;
+    }
+    return i;
+}
+
+int getSizeBytes(T_liste l){
+    return sizeof(T_liste)*getNbreCell(l);
+}
+
+T_liste creatNewListeFromFusion(T_liste l1, T_liste l2){
+    T_liste l;
+    initListe(&l);
+    T_liste current1 = l1;
+    for(int i = 0; current1 != NULL; i++){
+        ajoutEnFin(l, *(current1->pdata));
+        current1 = current1->suiv;
+    }
+
+    T_liste current2 = l2;
+    for(int i = 0; current1 != NULL; i++){
+        ajoutEnFin(l, *(current2->pdata));
+        current1 = current2->suiv;
+    }
+}
+
+T_liste addBehind(T_liste debut, T_liste suite){
+    getptrLastCell(l1)->suiv = l2;
+    l2->prec = l1;
+}
+
+T_liste findCell(T_liste l, int data){
+}
