@@ -27,6 +27,10 @@ int main()
     create_random_list(l, SIZE+1);
     int *tab = list_to_tab_free(&l, SIZE+1);
     afficheTab(tab, SIZE+1);
+    initListe(&l);
+    l = tab_to_liste(l, tab, SIZE);
+    printf("\n");
+    afficheListeV1(l);
 
     return 0;
 }

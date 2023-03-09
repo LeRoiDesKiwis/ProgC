@@ -50,3 +50,13 @@ int *list_to_tab_free(T_liste *l, int size){
     return tab;
 }
 
+T_liste tab_to_liste(T_liste l, int *tab, int size){
+    for(int i = 0; i < size; i++){
+        l = ajoutEnFin(l, tab[i]);
+        printf("%d ", tab[i]);
+    }
+
+    return l;
+
+}
+
