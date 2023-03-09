@@ -23,3 +23,14 @@ void create_random_list(T_liste l, int n){
         ajoutEnFin(l, random_number);
     }
 }
+
+int *list_to_tab(T_liste l, int size){
+    int *tab = (int*)malloc(size*(sizeof(int)));
+    T_liste courant = l;
+    for(int i = 0; i < size; i++){
+        if(courant == NULL) break;
+        tab[i] = *(courant->pdata);
+        courant = courant->suiv;
+    }
+    return tab;
+}

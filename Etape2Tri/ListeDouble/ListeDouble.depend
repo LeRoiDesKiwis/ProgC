@@ -48,17 +48,18 @@
 1678351939 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.h
 	<stdbool.h>
 
-1678358500 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/main.c
+1678360806 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
+	<time.h>
 	"listeDouble.h"
 	"tri.h"
 
-1678357745 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.h
+1678360736 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.h
 	"listeDouble.h"
 
-1678358463 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.c
+1678360596 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.c
 	<stdio.h>
 	<stdlib.h>
 	"tri.h"
