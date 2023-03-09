@@ -17,7 +17,7 @@ void tri_selection(int *tableau, int taille){
     }
 }
 
-void create_random_list(T_liste *l, int n){
+void create_random_list(T_liste l, int n){
     for(int i = 0; i < n; i++){
         int random_number = rand()%100;
         ajoutEnFin(l, random_number);
