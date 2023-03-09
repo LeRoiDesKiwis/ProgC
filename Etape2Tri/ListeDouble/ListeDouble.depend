@@ -65,3 +65,28 @@
 	"tri.h"
 	"listeDouble.h"
 
+1678390795 source:c:\users\ferry\documents\fac\progc\etape2tri\listedouble\listedouble.c
+	<stdio.h>
+	<stdlib.h>
+	"listeDouble.h"
+
+1678390795 c:\users\ferry\documents\fac\progc\etape2tri\listedouble\listedouble.h
+	<stdbool.h>
+
+1678394173 source:c:\users\ferry\documents\fac\progc\etape2tri\listedouble\tri.c
+	<stdio.h>
+	<stdlib.h>
+	"tri.h"
+	"listeDouble.h"
+
+1678394645 c:\users\ferry\documents\fac\progc\etape2tri\listedouble\tri.h
+	"listeDouble.h"
+
+1678394590 source:c:\users\ferry\documents\fac\progc\etape2tri\listedouble\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	"listeDouble.h"
+	"tri.h"
+

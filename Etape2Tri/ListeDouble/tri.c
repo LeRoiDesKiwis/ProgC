@@ -60,3 +60,11 @@ T_liste tab_to_liste(T_liste l, int *tab, int size){
 
 }
 
+T_liste tri_liste(T_liste l, int size){
+
+    int *tab = list_to_tab(l, size);
+    tri_selection(tab, size);
+    initListe(&l);
+    tab_to_liste(l, tab, size);
+    return l;
+}
