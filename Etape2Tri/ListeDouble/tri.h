@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-
+void tri_selection(int *tableau, int taille);
 
 #endif // LISTEDOUBLE_H_INCLUDED
 
