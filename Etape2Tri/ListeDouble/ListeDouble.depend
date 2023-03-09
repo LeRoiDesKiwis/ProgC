@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1616437721 source:d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\liste doublement chainée\listedouble\listedouble.c
+	<stdio.h>
+	<stdlib.h>
+	"listeDouble.h"
+
+1677796678 le.h"
+
+1616437763 d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\liste doublement chainée\listedouble\listedouble.h
+	<stdbool.h>
+
+1677796657 >
+
+1616437754 source:d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\liste doublement chainée\listedouble\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"listeDouble.h"
+
+1677796678 source:c:\users\ferry\dropbox\etape1 listedouble\listedouble\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"listeDouble.h"
+
+1677796657 c:\users\ferry\dropbox\etape1 listedouble\listedouble\listedouble.h
+	<stdbool.h>
+
+1677843003 source:/home/leroideskiwis/Dropbox/Etape1 ListeDouble/ListeDouble/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"listeDouble.h"
+
+1677841795 /home/leroideskiwis/Dropbox/Etape1 ListeDouble/ListeDouble/listeDouble.h
+	<stdbool.h>
+
+1677842929 source:/home/leroideskiwis/Dropbox/Etape1 ListeDouble/ListeDouble/listeDouble.c
+	<stdio.h>
+	<stdlib.h>
+	"listeDouble.h"
+
+1678351939 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.c
+	<stdio.h>
+	<stdlib.h>
+	"listeDouble.h"
+
+1678351939 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.h
+	<stdbool.h>
+
+1678358500 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"listeDouble.h"
+	"tri.h"
+
+1678357745 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.h
+	"listeDouble.h"
+
+1678358463 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.c
+	<stdio.h>
+	<stdlib.h>
+	"tri.h"
+	"listeDouble.h"
+

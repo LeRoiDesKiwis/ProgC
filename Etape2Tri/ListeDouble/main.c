@@ -13,6 +13,7 @@ int main()
 
     //tests
     initListe(&l);
+    l = ajoutEnFin(l, 1);
     create_random_list(l, 100);
     afficheListeV1(l);
 
