@@ -40,3 +40,18 @@
 	<stdlib.h>
 	"listeDouble.h"
 
+1678356971 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.c
+	<stdio.h>
+	<stdlib.h>
+	"listeDouble.h"
+
+1678356970 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.h
+	<stdbool.h>
+
+1678356970 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.h
+	<stdbool.h>
+
+1678356673 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.h
+	<stdbool.h>
+	"listeDouble.h"
+
