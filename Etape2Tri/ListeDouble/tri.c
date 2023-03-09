@@ -34,3 +34,19 @@ int *list_to_tab(T_liste l, int size){
     }
     return tab;
 }
+
+int *list_to_tab_free(T_liste *l, int size){
+    int *tab = (int*)malloc(size*(sizeof(int)));
+    T_liste courant = *l;
+    for(int i = 0; i < size; i++){
+        if(courant == NULL) break;
+        tab[i] = *(courant->pdata);
+        T_liste next = getptrNextCell(courant);
+        free(courant);
+        courant = next;
+    }
+
+    *l = NULL;
+    return tab;
+}
+
