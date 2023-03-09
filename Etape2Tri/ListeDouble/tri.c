@@ -53,16 +53,15 @@ int *list_to_tab_free(T_liste *l, int size){
 T_liste tab_to_liste(T_liste l, int *tab, int size){
     for(int i = 0; i < size; i++){
         l = ajoutEnFin(l, tab[i]);
-        printf("%d ", tab[i]);
     }
 
     return l;
 
 }
 
-T_liste tri_liste(T_liste l, int size){
+T_liste tri_liste(T_liste *l, int size){
 
-    int *tab = list_to_tab(l, size);
+    int *tab = list_to_tab_free(l, size);
     tri_selection(tab, size);
     initListe(&l);
     tab_to_liste(l, tab, size);
