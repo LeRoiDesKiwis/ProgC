@@ -90,7 +90,7 @@
 	"listeDouble.h"
 	"tri.h"
 
-1678351939 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.c
+1678442071 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.c
 	<stdio.h>
 	<stdlib.h>
 	"listeDouble.h"
@@ -98,7 +98,7 @@
 1678351939 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/listeDouble.h
 	<stdbool.h>
 
-1678440956 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/main.c
+1678442026 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -106,6 +106,12 @@
 	"listeDouble.h"
 	"tri.h"
 
-1678440956 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.h
+1678441830 /home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.h
+	"listeDouble.h"
+
+1678441892 source:/home/leroideskiwis/Documents/git/ProgC/Etape2Tri/ListeDouble/tri.c
+	<stdio.h>
+	<stdlib.h>
+	"tri.h"
 	"listeDouble.h"
 

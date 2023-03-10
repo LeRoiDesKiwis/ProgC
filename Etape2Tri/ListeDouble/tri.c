@@ -67,3 +67,15 @@ T_liste tri_liste(T_liste *l, int size){
     tab_to_liste(*l, tab, size);
     return *l;
 }
+
+T_liste tri_selection_liste(T_liste l){
+    T_liste courant, j, plus_petit;
+    for (courant = l; courant != NULL; courant = getptrNextCell(courant)){
+        plus_petit = courant;
+        for (j = courant; j != NULL; j = getptrNextCell(j))
+            if (*(j->pdata) < *(plus_petit->pdata))
+                plus_petit = j;
+        swapPtrData(courant, plus_petit);
+    }
+    return l;
+}

@@ -9,5 +9,6 @@ int *list_to_tab(T_liste l, int size);
 int *list_to_tab_free(T_liste *l, int size);
 T_liste tab_to_liste(T_liste l, int *tab, int size);
 T_liste tri_liste(T_liste *l, int size);
+T_liste tri_selection_liste(T_liste l);
 
 #endif // TRI_H_INCLUDED
