@@ -1,0 +1,109 @@
+# depslib dependency file v1.0
+1588353229 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\types.c
+	<stdlib.h>
+	<stdio.h>
+	"types.h"
+
+1588267758 d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\types.h
+
+1588670004 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\entrepot.c
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+	"entrepot.h"
+	"types.h"
+	"piles.h"
+
+1588669957 d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\entrepot.h
+	"types.h"
+	"piles.h"
+
+1588618690 d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\piles.h
+	<stdbool.h>
+	"types.h"
+
+1588669959 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"types.h"
+	"entrepot.h"
+	"piles.h"
+
+1588516763 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite\piles.c
+	<stdlib.h>
+	<stdio.h>
+	"piles.h"
+
+1588516763 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\piles.c
+	<stdlib.h>
+	<stdio.h>
+	"piles.h"
+
+1588765176 d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\piles.h
+	<stdbool.h>
+	"types.h"
+
+1588267758 d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\types.h
+
+1588353229 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\types.c
+	<stdlib.h>
+	<stdio.h>
+	"types.h"
+
+1588670644 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"types.h"
+	"entrepot.h"
+	"piles.h"
+
+1588754245 d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\entrepot.h
+	"types.h"
+	"piles.h"
+
+1588754260 source:d:\1yannick\_1_sfa\_2019-2020\semestre 2\l2 projet de prog\tp1\tp1_modularite_etu\entrepot.c
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+	"entrepot.h"
+	"types.h"
+	"piles.h"
+
+1617272435 source:d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\entrepot.c
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+	"entrepot.h"
+	"types.h"
+	"piles.h"
+
+1617272181 d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\entrepot.h
+	"types.h"
+	"piles.h"
+
+1617272816 d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\types.h
+
+1617271929 d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\piles.h
+	<stdbool.h>
+	"types.h"
+
+1617272788 source:d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"types.h"
+	"entrepot.h"
+	"piles.h"
+
+1588761576 source:d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\piles.c
+	<stdlib.h>
+	<stdio.h>
+	"piles.h"
+
+1617272816 source:d:\1yannick\_1_sfa\_2020-2021\semestre 2\l2 projet de prog\etape 5 modularité en c\etape 5 modularite_etu\types.c
+	<stdlib.h>
+	<stdio.h>
+	"types.h"
+
