@@ -17,7 +17,8 @@ bool listeVide( T_liste l){
 void afficheListeV0(T_liste l){
     T_liste courant = l;
     while (courant!=NULL){
-        printf("\n%d prec : %p, suiv : %p\n current : %p",*(courant->pdata), courant->prec, courant->suiv, courant);
+        //printf("\n%d prec : %p, suiv : %p\n current : %p",*(courant->pdata), courant->prec, courant->suiv, courant);
+        print(*(courant->pdata));
         courant=courant->suiv;
     }
     printf("\n");
@@ -27,18 +28,19 @@ void afficheListeV0(T_liste l){
 void afficheListeV1(T_liste l){
     T_liste courant = l;
     while (courant!=NULL){
-        printf(" %d ",*(courant->pdata));
+        //printf(" %d ",*(courant->pdata));
+        print(*(courant->pdata));
         courant=courant->suiv;
     }
     printf("\n");
 }
 
-T_liste ajoutEnTete(T_liste l, int mydata){
+T_liste ajoutEnTete(T_liste l, T_personne mydata){
     //création de la cellule à ajouter
     T_liste nouv = (T_liste)malloc(sizeof(struct T_cell));
     //struct T_cell * nouv = (struct T_cell *)malloc(sizeof(struct T_cell))
     //equivalent
-    nouv->pdata = (int*)malloc(sizeof(int));
+    nouv->pdata = (T_personne*)malloc(sizeof(T_personne));
     *(nouv->pdata)=mydata; //on modifie le contenu à l’adresse de notre pointeur
     // fin création de la nouvelle cellule
     if (l==NULL) // on crée en fait la première cellule de la liste
@@ -55,12 +57,12 @@ T_liste ajoutEnTete(T_liste l, int mydata){
     return nouv;
 }
 
-T_liste ajoutEnFin(T_liste l, int mydata){
+T_liste ajoutEnFin(T_liste l, T_personne mydata){
     //création de la cellule à ajouter
     T_liste nouv = (T_liste)malloc(sizeof(struct T_cell));
     //struct T_cell * nouv = (struct T_cell *)malloc(sizeof(struct T_cell))
     //equivalent
-    nouv->pdata = (int*)malloc(sizeof(int));
+    nouv->pdata = (T_personne*)malloc(sizeof(T_personne));
     *(nouv->pdata)=mydata; //on modifie le contenu à l’adresse de notre pointeur
     // fin création de la nouvelle cellule
     if (l==NULL) // on crée en fait la première cellule de la liste
@@ -82,12 +84,12 @@ T_liste ajoutEnFin(T_liste l, int mydata){
     return l;
 }
 
-T_liste ajoutEnN(T_liste l, int pos, int mydata){
+T_liste ajoutEnN(T_liste l, int pos, T_personne mydata){
         //création de la cellule à ajouter
     T_liste nouv = (T_liste)malloc(sizeof(struct T_cell));
     //struct T_cell * nouv = (struct T_cell *)malloc(sizeof(struct T_cell))
     //equivalent
-    nouv->pdata = (int*)malloc(sizeof(int));
+    nouv->pdata = (T_personne*)malloc(sizeof(T_personne));
     *(nouv->pdata)=mydata; //on modifie le contenu à l’adresse de notre pointeur
     // fin création de la nouvelle cellule
     if (l==NULL) // on crée en fait la première cellule de la liste
@@ -174,13 +176,13 @@ T_liste getptrPrevCell(T_liste l){
     return l->prec;
 }
 
-int* getPtrData(T_liste l, int mydata){
+T_personne* getPtrData(T_liste l, T_personne mydata){
     return l->pdata;
 }
 
 void swapPtrData( T_liste source, T_liste destination ){
-    int* a = source->pdata;
-    int* b = destination->pdata;
+    T_personne* a = source->pdata;
+    T_personne* b = destination->pdata;
     source->pdata = b;
     destination->pdata = a;
 }
@@ -222,20 +224,28 @@ T_liste addBehind(T_liste debut, T_liste suite){
     return debut;
 }
 
-T_liste findCell(T_liste l, int data){
+/*T_liste findCell(T_liste l, T_personne data){
     T_liste courant = l;
     while(courant != NULL && data != *(courant->pdata)){
         courant = courant->suiv;
     }
     return courant;
-}
+}*/
 
-int getOccurences(T_liste l, int data){
+int getOccurences(T_liste l, T_personne data, bool (*fcomp) (T_personne a, T_personne b)){
     int count = 0;
     T_liste courant = l;
     while(courant != NULL){
-        if(*(courant->pdata) == data) count++;
+        if(fcomp(*(courant->pdata), data)) count++;
         courant = courant->suiv;
     }
     return count;
+}
+
+
+T_liste creerListeNElem(T_liste l, int n){
+    for(int i = 0; i < n; i++){
+        l = ajoutEnFin(l, getPersAlea(0));
+    }
+    return l;
 }

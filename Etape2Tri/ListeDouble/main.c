@@ -6,13 +6,7 @@
 #include "listeDouble.h"
 #include "tri.h"
 
-#define SIZE 10
-
-void afficheTab(int *tab, int size){
-    for(int i = 0; i < size; i++){
-        printf("%d, ", tab[i]);
-    }
-}
+#define SIZE 100
 
 int main()
 {
@@ -20,18 +14,14 @@ int main()
     T_liste l;
     printf("Zone de test de vos fonctions!\n");
     printf("1 fonction = 1 test immediat!\n");
-    time_t now = time(NULL);
 
     initListe(&l);
-    l = ajoutEnFin(l, 1);
-    create_random_list(l, SIZE);
-
+    l = creerListeNElem(l, SIZE);
     afficheListeV1(l);
-    l = tri_selection_liste(l);
-    afficheListeV1(l);
+    T_personne* p1 = (T_personne*)malloc(sizeof(T_personne));
+    p1->taille = 170;
 
-    time_t after = time(NULL);
-    printf("Traitement effectue en %.2f seconde(s) !", difftime(after, now));
+    printf("%d", getOccurences(l, *p1, comp_taille_AegaleB));
 
     return 0;
 }

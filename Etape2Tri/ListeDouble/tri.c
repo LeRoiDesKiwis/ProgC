@@ -4,7 +4,7 @@
 #include "tri.h"
 #include "listeDouble.h"
 
-void tri_selection(int *tableau, int taille){
+/*void tri_selection(int *tableau, int taille){
     int en_cours, plus_petit, j, temp;
     for (en_cours = 0; en_cours < taille - 1; en_cours++){
         plus_petit = en_cours;
@@ -79,3 +79,4 @@ T_liste tri_selection_liste(T_liste l){
     }
     return l;
 }
+*/
