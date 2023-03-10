@@ -63,7 +63,7 @@ T_liste tri_liste(T_liste *l, int size){
 
     int *tab = list_to_tab_free(l, size);
     tri_selection(tab, size);
-    initListe(&l);
-    tab_to_liste(l, tab, size);
-    return l;
+    initListe(l);
+    tab_to_liste(*l, tab, size);
+    return *l;
 }
