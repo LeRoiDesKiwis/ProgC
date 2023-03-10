@@ -20,7 +20,8 @@ int main()
     afficheListeV1(l);
     T_personne* p1 = (T_personne*)malloc(sizeof(T_personne));
     p1->taille = 170;
-
+    l = tri_selection_liste(l, comp_taille_AinfB);
+    afficheListeV1(l);
     printf("%d", getOccurences(l, *p1, comp_taille_AegaleB));
 
     return 0;
