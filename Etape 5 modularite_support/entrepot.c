@@ -115,12 +115,20 @@ int nbCartonsPresents( stock s ){
 }
 //---------------------------------------------------------------------------------------------------------------------
 // A FAIRE
-/*
-stock repatirNbBoitesDansTousLesCartons( stock s, int nb_boites_total_a_dispatcher){
 
+stock repatirNbBoitesDansTousLesCartons( stock s, int nb_boites_total_a_dispatcher){
+    while(true){
+        int nb = nb_boites_total_a_dispatcher;
+        nb_boites_total_a_dispatcher = nb_boites_total_a_dispatcher-tetePile(s)->nb_places_libres;
+        tetePile(s)->nb_places_libres = (tetePile(s)->nb_places_libres)-nb;
+        if(nb_boites_total_a_dispatcher != 0){
+            tete = depiler(s);
+        } else break;
+    }
 }
 //---------------------------------------------------------------------------------------------------------------------
 int nbBoitesTotalEnStock( stock *s ){
 
+
+
 }
-*/
