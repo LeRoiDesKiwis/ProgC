@@ -16,6 +16,12 @@ int main()
     printf("\\------------------------------------\n");
 
     // TODO : création, utilisation d'un semaphore-mutex
+    Semaphore mutex;
+    mutex = mutex_creer();
+    mutex_prendre(mutex);
+    mutex_vendre(mutex);
+    mutex_vendre(mutex);
+    sema_detruire(&mutex);
 
     return EXIT_SUCCESS;
 }

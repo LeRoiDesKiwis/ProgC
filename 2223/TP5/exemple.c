@@ -16,7 +16,7 @@ void demo1()
   printf("/------------------------------------\n");
   printf("| illustration basique d'un mutex\n");
   printf("\\------------------------------------\n");
-    
+
   Semaphore mutex;
 
   mutex = mutex_creer();
@@ -28,12 +28,10 @@ void demo1()
   mutex_vendre(mutex);
   printf("Valeur apres V : %d\n", sema_getVal(mutex));
 
-
-  sema_detruire(&mutex);
 }
 
 /*******************************
- * illustration basique 
+ * illustration basique
  *
  * Attention, il s'agit juste ici de montrer le fonctionnement des
  * primitives sur les sémaphores. L'exemple n'a pas spécialement de
@@ -46,7 +44,7 @@ void demo2()
   printf("/------------------------------------\n");
   printf("| illustration basique des semaphores\n");
   printf("\\------------------------------------\n");
-    
+
   Semaphore sem;
 
   // Création avec initialisation à une valeur de 1
@@ -115,7 +113,7 @@ void demo3()
       // petite attente aléatoire pour que le premier à entrer en SC
       // ne soit pas toujours le même
       srandom(getpid());
-      //usleep(1 + (random()%10) * 100000);
+      usleep(1 + (random()%10) * 100000);
       sleep(1);
       printf("(fils) tente d'entrer en section critique\n");
       mutex_prendre(sc);
@@ -141,8 +139,8 @@ void demo3()
 int main()
 {
   demo1();
-  //demo2();
-  //demo3();
-  
+  demo2();
+  demo3();
+
   return EXIT_SUCCESS;
 }

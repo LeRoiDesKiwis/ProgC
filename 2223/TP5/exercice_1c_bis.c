@@ -14,6 +14,7 @@
 // variable globale pour alléger le code
 // déclarer les sémaphores/mutex ici
 // TODO déclaration semaphotes/mutex
+Semaphore mutex;
 
 // il est bien plus élégant de gérer le mutex ici plutôt
 // qu'en dehors de l'appel : ainsi on est sûr de ne pas l'oublier.
@@ -21,13 +22,15 @@ void code_SC_1(int fd, const char *s)
 {
     // pour faire un peu d'aléatoire
     usleep(random()%500);
-    
+
+    mutex_prendre(mutex);
     // code en section critique
     fic_ecrire_chaine(fd, s);
+    mutex_vendre(mutex);
 }
 
 /*
- * 
+ *
  */
 void fils1(int fd)
 {
@@ -38,16 +41,16 @@ void fils1(int fd)
     // donc la boucle ne doit pas être englobée dans la SC
     for (int i = 0; i < TAILLE; i++)
         code_SC_1(fd, "aaaaa\n");
-        
+
     // chaque fils doit fermer le fichier
     fic_fermer(fd);
-    
+
     // pour ne pas revenir dans le main
     exit(EXIT_SUCCESS);
 }
 
 /*
- * 
+ *
  */
 void fils2(int fd)
 {
@@ -55,10 +58,10 @@ void fils2(int fd)
 
     for (int i = 0; i < TAILLE; i++)
         code_SC_1(fd, "ZZZZZ\n");
-        
+
     // chaque fils doit fermer le fichier
     fic_fermer(fd);
-    
+
     // pour ne pas revenir dans le main
     exit(EXIT_SUCCESS);
 }
@@ -77,7 +80,7 @@ int main()
     // à surtout créer avant le fork,
     // plutôt un mutex car seules les valeurs 0 et 1 doivent être prises
     // TODO création mutex/semphote
-    
+    mutex = mutex_creer();
     if (fork() == 0)
         fils1(fd);          // rappel on ne sort pas de la fonction
     if (fork() == 0)
@@ -91,6 +94,6 @@ int main()
     // à faire absolument après le wait, sinon on risque de le
     // détruire alors que le fils s'en sert encore
     // TODO destruction mutex/semphote
- 
+    sema_detruire(&mutex);
     return EXIT_SUCCESS;
 }

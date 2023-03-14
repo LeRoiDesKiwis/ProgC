@@ -1,0 +1,3 @@
+Exercice 1
+c. Il vaut mieux faire les opérations dans la fonction car si le for n'est pas englobé, bah ça va pas bien se synchroniser quoi (c'est logique)
+C'est mieux d'utiliser un mutex car les mutex ne peuvent pas avoir une valeur supérieure à 1.

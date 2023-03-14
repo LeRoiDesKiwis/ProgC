@@ -7,15 +7,18 @@
 #include "fichier.h"
 #include "Semaphore.h"
 
-#define NB_FILS 10
+#define NB_FILS 1000
 #define FILENAME "bacasable.txt"
-#define TAILLE 1000
+#define TAILLE 10000
 
 // variable globale pour alléger le code
 // TODO déclarer les sémaphores/mutex ici
 
+Semaphore mutex;
+
 void code_SC_1(int fd)
 {
+    mutex_prendre(mutex);
     int v;
 
     fic_aller_debut(fd);
@@ -23,6 +26,7 @@ void code_SC_1(int fd)
     v ++;
     fic_aller_debut(fd);
     fic_ecrire_int(fd, v);
+    mutex_vendre(mutex);
 }
 
 /*
@@ -34,7 +38,7 @@ void fils()
 
     int fd = fic_ouvrir_lecture_ecriture(FILENAME);
 
-    // TODO : 
+    // TODO :
     // manipulez les sémaphores dans la fonction code_SC_1
     // donc la boucle ne doit pas être englobée dans la SC
     for (int i = 0; i < TAILLE; i++)
@@ -62,13 +66,14 @@ int main()
     // à surtout créer avant le fork,
     // plutôt un mutex car seules les valeurs 0 et 1 doivent être prises
     // TODO création mutex
+    mutex = mutex_creer();
 
     for (int i = 0; i < NB_FILS; i++)
     {
         if (fork() == 0)
             fils(i+1);        // rappel on ne sort pas de la fonction
     }
-    
+
     // ne pas oublier (rappel uniquement le père exécute ce code)
     for (int i = 0; i < NB_FILS; i++)
         wait(NULL);
@@ -77,7 +82,7 @@ int main()
     // à faire absolument après le wait, sinon on risque de le
     // détruire alors que le fils s'en sert encore
     // TODO destruction mutex/semaphore
- 
+
     printf("Il y a %d iterations par processus et %d fils\n", TAILLE, NB_FILS);
     printf("le resultat devrait être : %d\n", TAILLE*NB_FILS);
 
@@ -86,6 +91,8 @@ int main()
     fic_lire_int(fd, &res);
     fic_fermer(fd);
     printf("le resultat est : %d\n", res);
+
+    sema_detruire(&mutex);
 
     return EXIT_SUCCESS;
 }

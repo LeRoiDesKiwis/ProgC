@@ -13,8 +13,7 @@
 
 // variable globale pour alléger le code
 // TODO déclarer les sémaphores/mutex ici
-
-
+Semaphore mutex;
 
 void code_SC_1(int fd, const char *s)
 {
@@ -24,7 +23,7 @@ void code_SC_1(int fd, const char *s)
 }
 
 /*
- * 
+ *
  */
 void fils1(int fd)
 {
@@ -34,17 +33,18 @@ void fils1(int fd)
 
     // TODO : appeler le code critique ici
     // manipulez les sémaphores en dehors de la fonction code_SC_1
+    mutex_prendre(mutex);
     code_SC_1(fd, "aaaaa\n");
-
+    mutex_vendre(mutex);
     // chaque fils doit fermer le fichier
     fic_fermer(fd);
-    
+
     // pour ne pas revenir dans le main
     exit(EXIT_SUCCESS);
 }
 
 /*
- * 
+ *
  */
 void fils2(int fd)
 {
@@ -54,11 +54,13 @@ void fils2(int fd)
 
     // TODO : appeler le code critique ici
     // manipulez les sémaphores en dehors de la fonction code_SC_1
+    mutex_prendre(mutex);
     code_SC_1(fd, "ZZZZZ\n");
+    mutex_vendre(mutex);
 
     // chaque fils doit fermer le fichier
     fic_fermer(fd);
-    
+
     // pour ne pas revenir dans le main
     exit(EXIT_SUCCESS);
 }
@@ -77,8 +79,9 @@ int main()
     // à surtout créer avant le fork,
     // plutôt un mutex car seules les valeurs 0 et 1 doivent être prises
     // TODO creation mutex/semaphore
-    
-    
+
+    mutex = mutex_creer();
+
     if (fork() == 0)
         fils1(fd);          // rappel on ne sort pas de la fonction
     if (fork() == 0)
@@ -92,6 +95,7 @@ int main()
     // à faire absolument après le wait, sinon on risque de le
     // détruire alors que le fils s'en sert encore
     // TODO destruction mutex/semaphore
- 
+    sema_detruire(&mutex);
+
     return EXIT_SUCCESS;
 }
