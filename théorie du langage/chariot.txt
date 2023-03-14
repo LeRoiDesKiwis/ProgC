@@ -1,0 +1,14 @@
+-- ceci est un "commentaire" 
+NOM "tit i" ; 
+debUT 
+Avance 124.4 ; -- j'avance 
+Gauche 26 ; 
+Fois 4 DEBUT 
+     AVANCE 30.5 ; 
+     FOIS 3 
+            DROITE 20 ; 
+     AVANCE 20.3 ; 
+       FIn ; 
+aVaNcE 120 ; 
+affiche ;    -- j'affiche le nb de km parcourus  
+Fin
