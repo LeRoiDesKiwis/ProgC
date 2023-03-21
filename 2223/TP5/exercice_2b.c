@@ -9,19 +9,20 @@
 // variable globale pour alléger le code
 // déclarer les sémaphores/mutex ici
 // TODO déclarer les sémaphores/mutex ici
+Semaphore mut;
 
 /*
  * le fils 1 doit s'exécuter avant le fils 2
  */
 void fils1()
 {
+    mutex_prendre(mut);
     printf("fils 1 : je commence\n");
     sleep(2);
     printf("fils 1 : je termine, le fils 2 ne devrait démarrer que maintenant\n");
-
+    mutex_vendre(mut);
     // autoriser fils 2 à démarrer
     // TODO
-
     // pour ne pas revenir dans le main
     exit(EXIT_SUCCESS);
 }
@@ -33,11 +34,12 @@ void fils2()
 {
     // attendre la fin du fils 1
     // TODO
-    
+    mutex_prendre(mut);
+
     printf("fils 2 : je commence, le fils 1 devrait avoir terminé\n");
     sleep(1);
     printf("fils 2 : je termine\n");
-
+    mutex_vendre(mut);
     // pour ne pas revenir dans le main
     exit(EXIT_SUCCESS);
 }
@@ -51,6 +53,7 @@ int main()
 
     // à surtout créer avant le fork, sinon il y a deux sémaphores indépendants
     // TODO creation mutex/semaphore
+    mut = mutex_creer();
 
     if (fork() == 0)
         fils1();          // rappel on ne sort pas de la fonction
@@ -65,6 +68,7 @@ int main()
     // à faire absolument après le wait, sinon on risque de le
     // détruire alors que le fils s'en sert encore
     // TODO destruction mutex
- 
+    sema_detruire(&mut);
+
     return EXIT_SUCCESS;
 }
