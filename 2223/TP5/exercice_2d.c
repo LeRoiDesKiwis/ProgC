@@ -10,9 +10,11 @@
 // déclarer les sémaphores/mutex ici
 // TODO déclarer les sémaphores/mutex ici
 
+Semaphore mut1;
+Semaphore mut2;
 
 /*
- * 
+ *
  */
 void fils1()
 {
@@ -22,9 +24,10 @@ void fils1()
     sleep(1 + random() % 3);
     printf("fils 1 : je termine partie 1\n");
 
-    // Rendez-Vous
+    mutex_vendre(mut2);
     // TODO synchroniser les deux fils
-    
+    mutex_prendre(mut1);
+
     printf("fils 1 : je commence partie 2\n");
     sleep(1 + random() % 3);
     printf("fils 1 : je termine partie 2\n");
@@ -34,7 +37,7 @@ void fils1()
 }
 
 /*
- * 
+ *
  */
 void fils2()
 {
@@ -44,9 +47,11 @@ void fils2()
     sleep(1 + random() % 3);
     printf("    fils 2 : je termine partie 1\n");
 
+    mutex_vendre(mut1);
     // Rendez-Vous
     // TODO synchroniser les deux fils
-    
+    mutex_prendre(mut2);
+
     printf("    fils 2 : je commence partie 2\n");
     sleep(1 + random() % 3);
     printf("    fils 2 : je termine partie 2\n");
@@ -64,7 +69,12 @@ int main()
 
     // à surtout créer avant le fork,
     // TODO creation mutex/semaphore
-    
+    mut1 = mutex_creer();
+    mut2 = mutex_creer();
+
+    mutex_prendre(mut1);
+    mutex_prendre(mut2);
+
     if (fork() == 0)
         fils1();          // rappel on ne sort pas de la fonction
     if (fork() == 0)
@@ -78,6 +88,8 @@ int main()
     // à faire absolument après le wait, sinon on risque de le
     // détruire alors que le fils s'en sert encore
     // TODO destruction mutex/semaphore
- 
+    sema_detruire(&mut1);
+    sema_detruire(&mut2);
+
     return EXIT_SUCCESS;
 }
